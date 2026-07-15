@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ZAVI - Future headquarters of AI-powered premium consumer electronics. Experience precision audio, luxury smart wearables, and advanced GaN charging.">
+    <title>ZAVI | Future Premium Consumer Electronics</title>
+    <link rel="stylesheet" href="style.css?v=2.2">
+</head>
+<body>
+
+    <!-- --- Frosted Glass Preloader --- -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-assembly">
+                <span class="p-dot"></span>
+                <span class="p-dot"></span>
+                <span class="p-dot"></span>
+            </div>
+            <h1 class="preloader-logo">ZAVI</h1>
+            <p class="preloader-text">Engineering Future Sound</p>
+        </div>
+    </div>
+
+    <!-- --- Header Navigation --- -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <div class="logo-container">
+                <a href="#" class="logo-text">ZAVI</a>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="control-btn" id="search-trigger" aria-label="Open Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="control-btn" id="cart-trigger" aria-label="Open Shopping Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- Fullscreen Glass Sidebar Menu --- -->
+    <div class="fullscreen-sidebar" id="fullscreen-sidebar">
+        <div class="sidebar-content">
+            <div class="menu-sections">
+                <ul class="primary-links">
+                    <li><a href="#" class="menu-link">Home</a></li>
+                    <li><a href="#showcase" class="menu-link" data-target="audio">Audio Squad</a></li>
+                    <li><a href="#showcase" class="menu-link" data-target="wearables">Smart Wearables</a></li>
+                    <li><a href="#showcase" class="menu-link" data-target="charging">Charging Devices</a></li>
+                    <li><a href="#showcase" class="menu-link" data-target="storage">Data Storage</a></li>
+                    <li><a href="#engineering" class="menu-link">AI Technology</a></li>
+                </ul>
+                
+                <ul class="secondary-links">
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#" id="sidebar-account-btn">Account</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <span>© 2026 ZAVI Tech Inc.</span>
+                <span>Designed for tomorrow</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- Drawer & Modal Overlay --- -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- --- Search Drawer --- -->
+    <div class="drawer" id="search-drawer">
+        <div class="drawer-header">
+            <h2 class="drawer-title">Search</h2>
+            <button class="drawer-close" id="search-close" aria-label="Close Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div class="drawer-body">
+            <form class="search-form" onsubmit="event.preventDefault();">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon-inside" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" class="search-input" placeholder="Search products, technology..." id="search-input-field">
+                    <div class="search-media-triggers">
+                        <button type="button" class="search-media-btn" id="search-voice-btn" title="Voice Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                        </button>
+                        <button type="button" class="search-media-btn" id="search-image-btn" title="Image Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="predictive-results-panel" id="predictive-results-panel" style="display: none;">
+                    <h3 class="suggestion-title">Matched Products</h3>
+                    <div class="predictive-products-grid" id="predictive-products-grid">
+                        <!-- JS generated results -->
+                    </div>
+                </div>
+                
+                <div class="search-suggestions" id="search-trending-panel">
+                    <h3 class="suggestion-title">Trending Searches</h3>
+                    <ul class="suggestion-list">
+                        <li class="suggestion-item"><a href="#showcase" data-search="ZAVI Master ANC Pro">ZAVI Master ANC Pro</a></li>
+                        <li class="suggestion-item"><a href="#showcase" data-search="Chronos Titanium">Chronos Titanium Watch</a></li>
+                        <li class="suggestion-item"><a href="#showcase" data-search="GaN Fast Charger">GaN 140W Charger</a></li>
+                        <li class="suggestion-item"><a href="#showcase" data-search="Portable SSD">Portable SSD 2TB</a></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- --- Cart & Checkout Wizard Drawer --- -->
+    <div class="drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="cart-title">Shopping Bag</h2>
+            <button class="drawer-close" id="cart-close" aria-label="Close Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        
+        <div class="checkout-progress-bar" id="checkout-progress-bar" style="display: none;">
+            <div class="progress-step active" data-step="1"></div>
+            <div class="progress-step" data-step="2"></div>
+            <div class="progress-step" data-step="3"></div>
+        </div>
+
+        <div class="drawer-body" id="cart-body">
+            <!-- Step 1: Bag Review -->
+            <div class="checkout-step-panel active" id="step-bag">
+                <div class="cart-items-container" id="cart-items-container">
+                    <!-- Items injected via JS -->
+                </div>
+                <div class="cart-empty-message" id="cart-empty-message">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                    <p>Your luxury collection is empty</p>
+                    <button class="btn-secondary" id="cart-start-shopping">Start Exploring</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Shipping Details & Luxury Customization -->
+            <div class="checkout-step-panel" id="step-shipping" style="display: none;">
+                <div class="checkout-form">
+                    <h3 class="checkout-form-title">Delivery Destination</h3>
+                    <div class="checkout-input-group">
+                        <input type="text" class="checkout-input" id="co-name" placeholder="Full Name" required>
+                        <input type="email" class="checkout-input" id="co-email" placeholder="Email Address" required>
+                        <input type="text" class="checkout-input" id="co-address" placeholder="Shipping Address" required>
+                    </div>
+                    
+                    <h3 class="checkout-form-title">Packaging & Services</h3>
+                    <div class="warranty-selector" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label class="warranty-option active" id="pkg-premium-label">
+                            <input type="radio" name="packaging-type" value="premium" checked id="pack-premium-opt">
+                            <div class="warranty-info">
+                                <span class="w-name">Signature White Matte Box</span>
+                                <span class="w-price">Included</span>
+                            </div>
+                        </label>
+                        <label class="warranty-option" id="pkg-gift-label">
+                            <input type="radio" name="packaging-type" value="gift" id="pack-gift-opt">
+                            <div class="warranty-info">
+                                <span class="w-name">Premium Gift wrapping & Letter</span>
+                                <span class="w-price">+$9.00</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Secure Checkout Payment -->
+            <div class="checkout-step-panel" id="step-payment" style="display: none;">
+                <div class="checkout-form">
+                    <h3 class="checkout-form-title">Secure Payment</h3>
+                    <div class="checkout-card-preview">
+                        <div class="card-chip"></div>
+                        <div class="card-logo">ZAVI</div>
+                        <div class="card-number-display" id="card-num-disp">•••• •••• •••• ••••</div>
+                        <div class="card-row">
+                            <span id="card-name-disp">CARDHOLDER NAME</span>
+                            <span id="card-expiry-disp">MM/YY</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-input-group">
+                        <input type="text" class="checkout-input" id="pay-cardholder" placeholder="Cardholder Name" required>
+                        <input type="text" class="checkout-input" id="pay-cardnum" placeholder="Card Number" maxlength="19" required>
+                        <div class="input-row-half">
+                            <input type="text" class="checkout-input" id="pay-expiry" placeholder="MM/YY" maxlength="5" required>
+                            <input type="password" class="checkout-input" id="pay-cvv" placeholder="CVV" maxlength="3" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-coupon-wrapper">
+                        <input type="text" class="checkout-input" id="pay-coupon" placeholder="Coupon Code">
+                        <button type="button" class="btn-secondary" id="apply-coupon-btn">Apply</button>
+                    </div>
+                    <div id="coupon-msg" style="font-size:0.75rem;margin-top:0.4rem;display:none;"></div>
+                </div>
+            </div>
+
+            <!-- Step 4: Luxurious Confirmation -->
+            <div class="checkout-step-panel" id="step-success" style="display: none;">
+                <div class="success-screen">
+                    <div class="checkmark-circle">
+                        <div class="checkmark draw"></div>
+                    </div>
+                    <h3 class="success-title">Order Confirmed</h3>
+                    <p class="success-desc">Thank you for your order. We are preparing your precision-engineered ZAVI device. A confirmation code has been sent to your email.</p>
+                    <div class="order-details-box">
+                        <div class="od-row">
+                            <span>Order Reference</span>
+                            <span id="order-ref-num">ZV-92840-A2</span>
+                        </div>
+                        <div class="od-row">
+                            <span>Delivery Target</span>
+                            <span id="order-deliv-target">Tomorrow</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" id="success-done-btn">Return to Labs</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="drawer-footer" id="cart-drawer-footer" style="display: none;">
+            <div class="cart-summary-row" id="cart-summary-row">
+                <span>Subtotal</span>
+                <span class="cart-summary-total" id="cart-subtotal">$0.00</span>
+            </div>
+            
+            <div class="checkout-nav-btns" id="checkout-nav-btns">
+                <button class="btn-secondary" id="checkout-back-btn" style="display: none;">Back</button>
+                <button class="btn-primary" id="checkout-next-btn">Proceed to Details</button>
+                <button class="btn-primary" id="checkout-pay-btn" style="display: none;">Pay Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- PRODUCT QUICK VIEW MODAL --- -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-dialog">
+            <button class="modal-close" id="qv-close" aria-label="Close View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-content-grid">
+                <!-- Left: Interactive Image Preview -->
+                <div class="qv-visuals">
+                    <span class="qv-badge" id="qv-product-badge">New</span>
+                    <div class="qv-main-image-wrapper">
+                        <img src="" alt="" id="qv-main-image">
+                    </div>
+                    <!-- Viewing Angles Selector -->
+                    <div class="qv-angles-grid">
+                        <button class="qv-angle-btn active" data-angle="front">Front View</button>
+                        <button class="qv-angle-btn" data-angle="side">Side View</button>
+                        <button class="qv-angle-btn" data-angle="case">3D Angle</button>
+                    </div>
+                </div>
+                <!-- Right: Product Purchasing Form -->
+                <div class="qv-details">
+                    <p class="qv-category" id="qv-product-category">Category</p>
+                    <h2 class="qv-title" id="qv-product-name">Product Name</h2>
+                    
+                    <div class="qv-rating-row">
+                        <div class="stars-outer">
+                            <span class="star-rating" id="qv-product-stars">★★★★★</span>
+                        </div>
+                        <span class="qv-rating-count">(48 verified reviews)</span>
+                    </div>
+                    
+                    <p class="qv-desc" id="qv-product-desc">Description of product details go here.</p>
+                    
+                    <div class="qv-price-row">
+                        <span class="qv-price" id="qv-product-price">$0.00</span>
+                        <span class="qv-shipping-badge">Fast Free Shipping</span>
+                    </div>
+
+                    <!-- Color Swatches -->
+                    <div class="qv-options-block">
+                        <h4 class="qv-option-title">Finish / Color</h4>
+                        <div class="swatches-grid" id="qv-color-swatches">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Storage / Size Selector -->
+                    <div class="qv-options-block" id="qv-storage-block" style="display: none;">
+                        <h4 class="qv-option-title">Storage Option</h4>
+                        <div class="storage-selector-row">
+                            <button class="storage-btn active" data-storage="256">256 GB</button>
+                            <button class="storage-btn" data-storage="512">512 GB</button>
+                            <button class="storage-btn" data-storage="1024">1 TB</button>
+                        </div>
+                    </div>
+
+                    <!-- Premium Care Plan -->
+                    <div class="qv-options-block">
+                        <h4 class="qv-option-title">Extended ZAVI Care Protection</h4>
+                        <div class="warranty-selector">
+                            <label class="warranty-option active">
+                                <input type="radio" name="warranty" value="standard" checked>
+                                <div class="warranty-info">
+                                    <span class="w-name">Standard 2-Year Global Coverage</span>
+                                    <span class="w-price">Included</span>
+                                </div>
+                            </label>
+                            <label class="warranty-option">
+                                <input type="radio" name="warranty" value="platinum">
+                                <div class="warranty-info">
+                                    <span class="w-name">Platinum Care (5-Year Accidental Damage Protection)</span>
+                                    <span class="w-price">+$49.00</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Estimated Delivery -->
+                    <div class="qv-delivery-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <span>Estimated delivery: <strong id="qv-delivery-date">Tuesday, July 15</strong></span>
+                    </div>
+
+                    <!-- Add & Buy Buttons -->
+                    <div class="qv-buying-actions">
+                        <button class="btn-primary" id="qv-add-to-cart-btn">Add to Bag</button>
+                        <button class="btn-secondary" id="qv-buy-now-btn">Buy Now</button>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="qv-trust-footer">
+                        <div class="qv-trust-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <span>Secure Payment SSL</span>
+                        </div>
+                        <div class="qv-trust-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <span>30-Day Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frequently bought together and packaging preview -->
+            <div class="qv-extras-row">
+                <div class="qv-frequently-bought">
+                    <h3 class="extras-section-title">Frequently Bought Together</h3>
+                    <div class="fbt-grid">
+                        <div class="fbt-item">
+                            <img src="assets/images/charger.jpg" alt="GaN charger addon" class="fbt-img">
+                            <div class="fbt-details">
+                                <span class="fbt-name">ZAVI GaN 140W Core Charger</span>
+                                <span class="fbt-price">+$69.00 <del>$89.00</del></span>
+                            </div>
+                            <button class="btn-add-add-on" id="fbt-add-charger">Add Bundle</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="qv-packaging-preview">
+                    <h3 class="extras-section-title">Premium ZAVI Packaging</h3>
+                    <p class="packaging-desc">Every ZAVI item arrives inside our signature ultra-thin matte white structural packaging, minimizing carbon footprint while providing a luxurious unboxing experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- HERO SECTION (Cinematic Background Video) --- -->
+    <section class="hero-section" id="home">
+        <video autoplay muted loop playsinline class="hero-video-bg" preload="auto">
+            <source src="assets/videos/zavi-hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+        
+        <div class="container hero-layout-grid">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">ZAVI AI LABS</span>
+                </div>
+                <h1 class="hero-title">
+                    Experience
+                    <span>Intelligent Sound</span>
+                </h1>
+                <p class="hero-description">
+                    Premium AI-powered audio devices engineered for the future of everyday life. Explore the core layers of our physical and mechanical craftsmanship.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#showcase" class="btn-primary">Shop Collection</a>
+                    <a href="#engineering" class="btn-secondary">Explore Technology</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+            <span class="scroll-text">Scroll to Discover</span>
+        </div>
+    </section>
+
+    <!-- --- FEATURE HIGHLIGHTS (Floating Glass Cards) --- -->
+    <section class="feature-highlights-section">
+        <div class="container highlights-grid">
+            <div class="highlight-card reveal">
+                <div class="hl-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3 class="hl-title">AI Enhanced Audio</h3>
+                <p class="hl-desc">Real-time room mapping and ear canal frequency matching algorithm.</p>
+            </div>
+            
+            <div class="highlight-card reveal">
+                <div class="hl-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="12" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg>
+                </div>
+                <h3 class="hl-title">48 Hour Battery</h3>
+                <p class="hl-desc">Ultra-long cell duration backed by smart hardware current distribution.</p>
+            </div>
+
+            <div class="highlight-card reveal">
+                <div class="hl-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="hl-title">Hybrid Active ANC</h3>
+                <p class="hl-desc">Quad feedback microphones suppressing up to 45dB of environmental ambient drone.</p>
+            </div>
+
+            <div class="highlight-card reveal">
+                <div class="hl-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h3 class="hl-title">Premium Warranty</h3>
+                <p class="hl-desc">Two-year replacement pledge with immediate global support priority access.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FEATURED COLLECTIONS --- -->
+    <section class="collections-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Intelligent Divisions</p>
+                <h2 class="section-title">Product Ecosystem</h2>
+            </div>
+            
+            <div class="collections-grid">
+                <a href="#showcase" class="collection-card reveal" data-tab="audio">
+                    <div class="collection-img-wrapper">
+                        <img src="assets/images/audio_buds.jpg" alt="Audio Squad Collection">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Audio Squad</h3>
+                        <p>Hear perfection. Explore premium and gaming wireless audio devices.</p>
+                        <span class="collection-link">Discover collection</span>
+                    </div>
+                </a>
+
+                <a href="#showcase" class="collection-card reveal" data-tab="wearables">
+                    <div class="collection-img-wrapper">
+                        <img src="assets/images/smartwatch.jpg" alt="Smart Wearables Collection">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Smart Wearables</h3>
+                        <p>Track intelligence. Forged titanium fitness and business watches.</p>
+                        <span class="collection-link">Discover collection</span>
+                    </div>
+                </a>
+
+                <a href="#showcase" class="collection-card reveal" data-tab="charging">
+                    <div class="collection-img-wrapper">
+                        <img src="assets/images/charger.jpg" alt="Charging Devices Collection">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Charging Devices</h3>
+                        <p>Power instant. Advanced GaN core charging structures.</p>
+                        <span class="collection-link">Discover collection</span>
+                    </div>
+                </a>
+
+                <a href="#showcase" class="collection-card reveal" data-tab="storage">
+                    <div class="collection-img-wrapper">
+                        <img src="assets/images/ssd.jpg" alt="Data Storage Collection">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Data Storage</h3>
+                        <p>Secure memory. Solid metal high-speed SSDs and flash storage.</p>
+                        <span class="collection-link">Discover collection</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PORTFOLIO CATEGORIES SHOWCASE --- -->
+    <section class="showcase-section" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Excellence In Every Division</p>
+                <h2 class="section-title">Explore Catalog</h2>
+            </div>
+
+            <!-- Tab Switching Controls -->
+            <div class="showcase-tabs">
+                <button class="tab-btn active" data-tab="audio">Audio Squad</button>
+                <button class="tab-btn" data-tab="wearables">Smart Wearables</button>
+                <button class="tab-btn" data-tab="charging">Charging Devices</button>
+                <button class="tab-btn" data-tab="storage">Data Storage</button>
+            </div>
+
+            <!-- TAB CONTENT: AUDIO SQUAD -->
+            <div class="showcase-grid active" id="tab-audio">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="audio-1">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-best">Best Seller</span>
+                        <span class="product-card-badge flag-ai">AI Recommended</span>
+                        <img src="assets/images/audio_buds.jpg" alt="ZAVI Master ANC Pro" class="product-display-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Audio Squad / ANC Earbuds</p>
+                            <h3 class="product-name">ZAVI Master ANC Pro</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.9)</span></div>
+                            <p class="product-description">Studio acoustics with advanced AI adaptive active noise cancelling and hybrid dual drivers.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$299.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="audio-1">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="audio-1" data-name="ZAVI Master ANC Pro" data-price="299.00" data-img="assets/images/audio_buds.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="audio-2">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-limited">Limited Edition</span>
+                        <img src="assets/images/gaming_buds.jpg" alt="ZAVI Nexus Gaming Buds" class="product-display-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Audio Squad / Gaming Earbuds</p>
+                            <h3 class="product-name">ZAVI Nexus Gaming</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.8)</span></div>
+                            <p class="product-description">28ms ultra-low latency audio sync, custom neural ambient profiles, and glowing gaming LED strips.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$229.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="audio-2">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="audio-2" data-name="ZAVI Nexus Gaming" data-price="229.00" data-img="assets/images/gaming_buds.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-product-id="audio-3">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-new">New Arrival</span>
+                        <img src="assets/images/audio_buds.jpg" alt="ZAVI Studio Max Over-Ear" class="product-display-img" style="filter: hue-rotate(180deg) brightness(0.95);">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Audio Squad / Wireless Headphones</p>
+                            <h3 class="product-name">ZAVI Studio Max</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(5.0)</span></div>
+                            <p class="product-description">Premium wireless headphones built from carbon fiber and titanium. Lossless spatial audio.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$449.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="audio-3">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="audio-3" data-name="ZAVI Studio Max" data-price="449.00" data-img="assets/images/audio_buds.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: SMART WEARABLES -->
+            <div class="showcase-grid" id="tab-wearables">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="wear-1">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-best">Best Seller</span>
+                        <img src="assets/images/smartwatch.jpg" alt="ZAVI Chronos Titanium" class="product-display-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Wearables / Luxury Smart Watches</p>
+                            <h3 class="product-name">ZAVI Chronos Titanium</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.9)</span></div>
+                            <p class="product-description">Forged titanium design, modular digital crowns, health bio-sensors, and 7-day battery.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$399.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="wear-1">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="wear-1" data-name="ZAVI Chronos Titanium" data-price="399.00" data-img="assets/images/smartwatch.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="wear-2">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-new">New Arrival</span>
+                        <img src="assets/images/smartwatch.jpg" alt="ZAVI Chronos Sport" class="product-display-img" style="filter: saturate(0.5) brightness(1.15);">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Wearables / Fitness Watches</p>
+                            <h3 class="product-name">ZAVI Chronos Sport</h3>
+                            <div class="stars-rating-small">★★★★☆ <span>(4.6)</span></div>
+                            <p class="product-description">Lightweight design, sapphire crystal face, ultra-responsive exercise analytics tracker.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$299.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="wear-2">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="wear-2" data-name="ZAVI Chronos Sport" data-price="299.00" data-img="assets/images/smartwatch.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: CHARGING DEVICES -->
+            <div class="showcase-grid" id="tab-charging">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="charge-1">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-best">GaN Core</span>
+                        <img src="assets/images/charger.jpg" alt="ZAVI GaN 140W Core" class="product-display-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Charging / GaN Fast Chargers</p>
+                            <h3 class="product-name">ZAVI GaN 140W Core</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.9)</span></div>
+                            <p class="product-description">Concurrent triple USB-C fast charge inside an ultra-compact minimalist block.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$89.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="charge-1">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="charge-1" data-name="ZAVI GaN 140W Core" data-price="89.00" data-img="assets/images/charger.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="charge-2">
+                    <div class="product-img-wrapper">
+                        <img src="assets/images/charger.jpg" alt="ZAVI Air Magnetic" class="product-display-img" style="filter: brightness(0.9) grayscale(0.25);">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Charging / Wireless Chargers</p>
+                            <h3 class="product-name">ZAVI Air Magnetic</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.7)</span></div>
+                            <p class="product-description">Super-slim profile magnetic charging pad crafted with brushed aluminum backplates.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$69.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="charge-2">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="charge-2" data-name="ZAVI Air Magnetic" data-price="69.00" data-img="assets/images/charger.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: DATA STORAGE -->
+            <div class="showcase-grid" id="tab-storage">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="store-1">
+                    <div class="product-img-wrapper">
+                        <span class="product-card-badge flag-best">Best Seller</span>
+                        <img src="assets/images/ssd.jpg" alt="ZAVI Nexus SSD 2TB" class="product-display-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Storage / Portable SSD</p>
+                            <h3 class="product-name">ZAVI Nexus SSD 2TB</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.9)</span></div>
+                            <p class="product-description">2000MB/s speeds inside an IP67 water-resistant solid metal aluminum chassis.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$179.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="store-1">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="store-1" data-name="ZAVI Nexus SSD 2TB" data-price="179.00" data-img="assets/images/ssd.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="store-2">
+                    <div class="product-img-wrapper">
+                        <img src="assets/images/ssd.jpg" alt="ZAVI Flash-C 512GB" class="product-display-img" style="filter: brightness(0.9) saturate(0.55);">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <p class="product-category">Storage / Flash Storage</p>
+                            <h3 class="product-name">ZAVI Flash-C 512GB</h3>
+                            <div class="stars-rating-small">★★★★★ <span>(4.8)</span></div>
+                            <p class="product-description">Dual USB-A and USB-C luxury connector flash drive. Unbelievable transfer speeds.</p>
+                        </div>
+                        <div class="product-actions">
+                            <span class="product-price">$59.00</span>
+                            <div class="product-btns-row">
+                                <button class="btn-qv" data-id="store-2">Quick View</button>
+                                <button class="add-to-cart-btn" data-id="store-2" data-name="ZAVI Flash-C 512GB" data-price="59.00" data-img="assets/images/ssd.jpg">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- INTERACTIVE AI TECHNOLOGY GRID --- -->
+    <section class="ai-tech-section" id="engineering">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Cognitive Audio Engine</p>
+                <h2 class="section-title">ZAVI Intelligence Core</h2>
+                <p class="section-description">We build custom neural models specifically optimized for the mechanical layers of our acoustic drives. Click features to analyze sensor configurations.</p>
+            </div>
+
+            <div class="ai-tech-grid">
+                <!-- Card 1 -->
+                <div class="ai-feature-card reveal active">
+                    <div class="ai-card-main">
+                        <div class="ai-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div class="ai-card-title-row">
+                            <h3>AI Adaptive Noise Cancellation</h3>
+                            <svg class="ai-card-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="ai-card-details">
+                        <p>Monitors ear canal shape and background environment noise 48,000 times per second to create inverse anti-waves. Automatically balances levels depending on surrounding ambient density.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ai-feature-card reveal">
+                    <div class="ai-card-main">
+                        <div class="ai-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                        </div>
+                        <div class="ai-card-title-row">
+                            <h3>AI Voice Enhancement</h3>
+                            <svg class="ai-card-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="ai-card-details">
+                        <p>Isolates voice bands during active phone calls. Distinguishes wind shear, traffic noise, and background chatter to highlight your spoken harmonics with crystalline clarity.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ai-feature-card reveal">
+                    <div class="ai-card-main">
+                        <div class="ai-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <div class="ai-card-title-row">
+                            <h3>AI Environmental Detection</h3>
+                            <svg class="ai-card-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="ai-card-details">
+                        <p>Leverages barometric sensors and dual feed-forward microphones to detect weather fluctuations, crowd sizes, or flight cabin pressures, recalibrating inner ear equalizer baselines.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ai-feature-card reveal">
+                    <div class="ai-card-main">
+                        <div class="ai-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div class="ai-card-title-row">
+                            <h3>AI Sound Optimization & Spatial</h3>
+                            <svg class="ai-card-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="ai-card-details">
+                        <p>Creates dynamic three-dimensional audio spacing mapping. Tracks head position metrics and aligns sound coordinates dynamically, producing deep concert-hall physical experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- WHY CHOOSE ZAVI (Visual Storytelling) --- -->
+    <section class="why-zavi-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Core Philosophy</p>
+                <h2 class="section-title">The Blueprint of Luxury</h2>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-visual">
+                        <svg viewBox="0 0 100 100" fill="none" stroke="#0066ff" stroke-width="3"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="10"/><path d="M50 10v80M10 50h80"/></svg>
+                    </div>
+                    <h3>Precision Engineering</h3>
+                    <p>Designed down to micron tolerances. Aligning hardware shell vectors with internal acoustic acoustics perfectly.</p>
+                </div>
+
+                <div class="why-card reveal">
+                    <div class="why-visual">
+                        <svg viewBox="0 0 100 100" fill="none" stroke="#0066ff" stroke-width="3"><polygon points="50 10 90 35 90 75 50 95 10 75 10 35"/><line x1="50" y1="10" x2="50" y2="95"/></svg>
+                    </div>
+                    <h3>Premium Materials</h3>
+                    <p>Aerospace solid titanium casing shells, carbon fiber structure meshes, and bio-friendly memory foams.</p>
+                </div>
+
+                <div class="why-card reveal">
+                    <div class="why-visual">
+                        <svg viewBox="0 0 100 100" fill="none" stroke="#0066ff" stroke-width="3"><path d="M10 50c0-20 20-30 40-30s40 10 40 30-20 30-40 30-40-10-40-30Z"/><circle cx="50" cy="50" r="15"/></svg>
+                    </div>
+                    <h3>Intelligent Innovation</h3>
+                    <p>Custom audio chipsets designed in-house, creating high fidelity lossless streams and battery optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- BEST SELLERS (Luxury Carousel) --- -->
+    <section class="best-sellers-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Worldwide Favorites</p>
+                <h2 class="section-title">ZAVI Best Sellers</h2>
+            </div>
+            
+            <!-- Carousel Control buttons -->
+            <div class="carousel-nav-controls">
+                <button class="carousel-control-btn prev-btn" id="bs-prev-btn" aria-label="Previous Products">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="carousel-control-btn next-btn" id="bs-next-btn" aria-label="Next Products">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+
+            <!-- Carousel Frame -->
+            <div class="carousel-frame">
+                <div class="carousel-track" id="bs-carousel-track">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="product-card" data-product-id="audio-1">
+                            <div class="product-img-wrapper">
+                                <span class="product-card-badge flag-best">Best Seller</span>
+                                <img src="assets/images/audio_buds.jpg" alt="ZAVI Master ANC Pro">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">ZAVI Master ANC Pro</h3>
+                                <p class="product-description">Autonomous frequency matching ear canal optimizer.</p>
+                                <div class="product-actions">
+                                    <span class="product-price">$299.00</span>
+                                    <button class="btn-qv" data-id="audio-1">Quick View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="product-card" data-product-id="wear-1">
+                            <div class="product-img-wrapper">
+                                <span class="product-card-badge flag-best">Best Seller</span>
+                                <img src="assets/images/smartwatch.jpg" alt="ZAVI Chronos Titanium">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">ZAVI Chronos Titanium</h3>
+                                <p class="product-description">Solid titanium case luxury health assistant watch.</p>
+                                <div class="product-actions">
+                                    <span class="product-price">$399.00</span>
+                                    <button class="btn-qv" data-id="wear-1">Quick View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="product-card" data-product-id="store-1">
+                            <div class="product-img-wrapper">
+                                <span class="product-card-badge flag-best">Best Seller</span>
+                                <img src="assets/images/ssd.jpg" alt="ZAVI Nexus SSD 2TB">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">ZAVI Nexus SSD 2TB</h3>
+                                <p class="product-description">Shockproof structural metal ultra-high speed SSD.</p>
+                                <div class="product-actions">
+                                    <span class="product-price">$179.00</span>
+                                    <button class="btn-qv" data-id="store-1">Quick View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <div class="product-card" data-product-id="charge-1">
+                            <div class="product-img-wrapper">
+                                <span class="product-card-badge flag-best">Best Seller</span>
+                                <img src="assets/images/charger.jpg" alt="ZAVI GaN 140W Core">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">ZAVI GaN 140W Core</h3>
+                                <p class="product-description">Advanced triple USB-C gallium nitride fast plug block.</p>
+                                <div class="product-actions">
+                                    <span class="product-price">$89.00</span>
+                                    <button class="btn-qv" data-id="charge-1">Quick View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CUSTOMER REVIEWS (Verified Layouts) --- -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Real Verified Opinions</p>
+                <h2 class="section-title">Worldwide Feedback</h2>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card reveal">
+                    <div class="rev-header">
+                        <div class="rev-user-img">
+                            <!-- Initials in styled grey circle representing luxury user avatar -->
+                            <div class="rev-avatar-placeholder">AM</div>
+                        </div>
+                        <div class="rev-user-meta">
+                            <h4 class="rev-user-name">Alexander Mercer</h4>
+                            <div class="rev-user-sub">
+                                <span class="rev-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Purchase</span>
+                                <span class="rev-country">🇺🇸 United States</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rev-stars">★★★★★</div>
+                    <p class="rev-text">"The physical design quality of the ZAVI earbuds is absolutely stellar. The transition to noise cancellation creates this deep pocket of complete silence. Truly a luxury item."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card reveal">
+                    <div class="rev-header">
+                        <div class="rev-user-img">
+                            <div class="rev-avatar-placeholder">SD</div>
+                        </div>
+                        <div class="rev-user-meta">
+                            <h4 class="rev-user-name">Sophie Dubois</h4>
+                            <div class="rev-user-sub">
+                                <span class="rev-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Purchase</span>
+                                <span class="rev-country">🇫🇷 France</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rev-stars">★★★★★</div>
+                    <p class="rev-text">"My Chronos Titanium watch fits beautifully inside my business meetings and sports workouts. Sapphire cover crystal is completely scratch-resistant. High fidelity screen UI."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card reveal">
+                    <div class="rev-header">
+                        <div class="rev-user-img">
+                            <div class="rev-avatar-placeholder">TK</div>
+                        </div>
+                        <div class="rev-user-meta">
+                            <h4 class="rev-user-name">Takashi Kuroda</h4>
+                            <div class="rev-user-sub">
+                                <span class="rev-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Purchase</span>
+                                <span class="rev-country">🇯🇵 Japan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rev-stars">★★★★★</div>
+                    <p class="rev-text">"GaN charger provides safe, fast power output. Minimalist aesthetics match my workspace perfectly. Excellent packaging design."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TRUST SECTION (Count-Up Stats) --- -->
+    <section class="trust-stats-section">
+        <div class="container trust-stats-grid">
+            <div class="stat-card reveal" data-target="1000000">
+                <span class="stat-number" id="stat-customers">0</span>
+                <span class="stat-label">Happy Customers</span>
+                <span class="stat-sub">Experiencing audio evolution</span>
+            </div>
+
+            <div class="stat-card reveal" data-target="120">
+                <span class="stat-number" id="stat-countries">0</span>
+                <span class="stat-label">Countries Served</span>
+                <span class="stat-sub">Immediate global express shipment</span>
+            </div>
+
+            <div class="stat-card reveal" data-target="99">
+                <span class="stat-number" id="stat-satisfaction">0</span>
+                <span class="stat-label">Satisfaction Rate</span>
+                <span class="stat-sub">Industry-leading quality check metrics</span>
+            </div>
+
+            <div class="stat-card reveal" data-target="2000000">
+                <span class="stat-number" id="stat-orders">0</span>
+                <span class="stat-label">Orders Delivered</span>
+                <span class="stat-sub">Precision-packed with care</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MAGAZINE EDITORIAL NEWS SECTION --- -->
+    <section class="editorial-news-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">ZAVI Chronicles</p>
+                <h2 class="section-title">Technology Newsroom</h2>
+                <p class="section-description">Deep structural insights and perspectives on the future of cognitive sound design, wireless speed, and micro-hardware craftsmanship.</p>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Article 1 -->
+                <article class="editorial-card reveal">
+                    <div class="ed-img-wrapper">
+                        <img src="assets/images/hero_earbuds.jpg" alt="Future of AI audio article">
+                    </div>
+                    <div class="ed-info">
+                        <div class="ed-meta">
+                            <span class="ed-category">Acoustic Research</span>
+                            <span class="ed-date">July 2026</span>
+                            <span class="ed-read">6 min read</span>
+                        </div>
+                        <h3 class="ed-title">The Future of Acoustic Intelligence</h3>
+                        <p class="ed-excerpt">How neural models are replacing mechanical chambers. Analyzing the coding architecture of Z1 acoustic DSP kernels.</p>
+                        <div class="ed-actions">
+                            <a href="#" class="ed-read-more" onclick="event.preventDefault(); alert('Article coming soon in ZAVI Press.');">Read Article</a>
+                            <div class="ed-icon-btns">
+                                <button class="btn-save-article" aria-label="Save Article"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                                <button class="btn-share-article" aria-label="Share Article"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="editorial-card reveal">
+                    <div class="ed-img-wrapper">
+                        <img src="assets/images/charger.jpg" alt="How GaN charging works">
+                    </div>
+                    <div class="ed-info">
+                        <div class="ed-meta">
+                            <span class="ed-category">Solid Physics</span>
+                            <span class="ed-date">June 2026</span>
+                            <span class="ed-read">4 min read</span>
+                        </div>
+                        <h3 class="ed-title">GaN Integration and Thermal Mechanics</h3>
+                        <p class="ed-excerpt">Analyzing why Gallium Nitride structures achieve double the output frequency with 60% less heat dissipation space.</p>
+                        <div class="ed-actions">
+                            <a href="#" class="ed-read-more" onclick="event.preventDefault(); alert('Article coming soon in ZAVI Press.');">Read Article</a>
+                            <div class="ed-icon-btns">
+                                <button class="btn-save-article" aria-label="Save Article"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                                <button class="btn-share-article" aria-label="Share Article"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PREMIUM NEWSLETTER --- -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-glass-card reveal">
+                <h2 class="nl-title">Join the Future of Intelligent Audio</h2>
+                <p class="nl-desc">Subscribe to ZAVI Labs. Receive early allocations on new division product drops, technical research updates, and verified owner privileges.</p>
+                <form class="nl-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to ZAVI Labs.'); this.reset();">
+                    <input type="email" class="nl-input" placeholder="Enter your email address" required aria-label="Email Address">
+                    <button type="submit" class="btn-primary">Join Console</button>
+                </form>
+                <p class="nl-trust-text"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your email is securely stored. Zero marketing spam, only core engineering releases.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FLOATING AI SHOPPING CONSULTANT --- -->
+    <div class="ai-consultant-widget" id="ai-consultant-widget">
+        <button class="ai-widget-trigger" id="ai-widget-trigger" aria-label="Open ZAVI AI Consultant">
+            <div class="ai-widget-pulse"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+        
+        <div class="ai-chat-window" id="ai-chat-window">
+            <div class="ai-chat-header">
+                <div class="ai-chat-userinfo">
+                    <div class="ai-consultant-logo">ZAVI</div>
+                    <div>
+                        <h4 class="ai-consultant-name">AI Product Consultant</h4>
+                        <span class="ai-consultant-status"><span class="status-dot"></span> Online - Smart Assistant</span>
+                    </div>
+                </div>
+                <button class="ai-chat-close" id="ai-chat-close" aria-label="Close Assistant">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div class="ai-chat-body" id="ai-chat-body">
+                <div class="ai-msg received">
+                    <p>Welcome to ZAVI Labs. I am your premium hardware consultant. Ask me about custom frequency optimization, spatial coordinates, device charging compatibility, or SSD storage metrics. How may I guide your collection today?</p>
+                </div>
+            </div>
+            
+            <!-- Quick Suggestion chips -->
+            <div class="ai-chat-suggestions">
+                <button class="ai-chip" data-query="Which earbuds fit active gaming?">Gaming Earbuds</button>
+                <button class="ai-chip" data-query="Explain GaN Fast charging safety.">GaN Safety</button>
+                <button class="ai-chip" data-query="Compare Chronos watches.">Compare Watches</button>
+            </div>
+
+            <div class="ai-chat-input-row">
+                <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Inquire about technology..." aria-label="Chat Input">
+                <button class="ai-chat-send" id="ai-chat-send" aria-label="Send Inquiry">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- Footer --- -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ZAVI</div>
+                <p class="footer-desc">ZAVI Tech Inc. is a future global technology company shaping the next generation of premium electronics.</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">Audio Squad</h4>
+                <ul class="footer-links">
+                    <li><a href="#showcase" data-tab="audio">ANC Earbuds</a></li>
+                    <li><a href="#showcase" data-tab="audio">Wireless Headphones</a></li>
+                    <li><a href="#showcase" data-tab="audio">Studio Microphones</a></li>
+                    <li><a href="#showcase" data-tab="audio">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">Wearables</h4>
+                <ul class="footer-links">
+                    <li><a href="#showcase" data-tab="wearables">Titanium Watches</a></li>
+                    <li><a href="#showcase" data-tab="wearables">Sport Wearables</a></li>
+                    <li><a href="#showcase" data-tab="wearables">Bio Sensors</a></li>
+                    <li><a href="#showcase" data-tab="wearables">Luxury Straps</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">Power & Storage</h4>
+                <ul class="footer-links">
+                    <li><a href="#showcase" data-tab="charging">GaN Fast Chargers</a></li>
+                    <li><a href="#showcase" data-tab="charging">Wireless Pads</a></li>
+                    <li><a href="#showcase" data-tab="storage">Portable SSD</a></li>
+                    <li><a href="#showcase" data-tab="storage">Flash Drives</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Inside ZAVI Labs</a></li>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">Warranty Details</a></li>
+                    <li><a href="#">Contact Office</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p class="footer-copyright">© 2026 ZAVI Tech Inc. All rights reserved. Precision crafted.</p>
+            <ul class="footer-bottom-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Cookies</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- --- Custom Interactive Cursor --- -->
+    <div class="custom-cursor" id="custom-cursor">
+        <div class="cursor-ring"></div>
+        <span class="cursor-badge" id="cursor-badge">Explore</span>
+    </div>
+
+    <script src="main.js?v=2.2"></script>
+</body>
+</html>
